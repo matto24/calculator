@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Buttons extends StatefulWidget {
   Buttons(this.num2, {super.key});
 
-  var num2;
+  final num2;
 
   @override
   State<Buttons> createState() {
