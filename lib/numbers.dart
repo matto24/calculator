@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 
-class Numbers extends StatefulWidget {
-  Numbers(this.num2, {super.key});
+class Buttons extends StatefulWidget {
+  Buttons(this.num2, {super.key});
 
-  int num2;
+  var num2;
 
   @override
-  State<Numbers> createState() {
-    return _Numbers();
+  State<Buttons> createState() {
+    return _Buttons();
   }
 }
 
-class _Numbers extends State<Numbers> {
-  double num1 = 0;
+class _Buttons extends State<Buttons> {
   void addNum() {
     setState(() {
-      num1++;
+      print(widget.num2);
     });
   }
 
   @override
   Widget build(context) {
-    return ElevatedButton(
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+      child: ElevatedButton(
         onPressed: addNum,
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.black,
-          textStyle: const TextStyle(
-            fontSize: 24,
-          ),
-          padding: const EdgeInsets.all(14),
-        ),
-        child: Text(widget.num2.toString()));
+        child: Text(widget.num2.toString()),
+      ),
+    );
   }
 }

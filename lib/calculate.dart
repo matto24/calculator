@@ -1,5 +1,6 @@
+import 'package:calculator/main.dart';
 import "package:flutter/material.dart";
-import 'package:calculator/button_style.dart';
+import 'package:calculator/numbers.dart';
 
 class Calculate extends StatefulWidget {
   const Calculate({super.key});
@@ -21,42 +22,52 @@ class _Calculate extends State<Calculate> {
 
   @override
   Widget build(context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text(
-          'Result',
-          style: TextStyle(fontSize: 28),
-        ),
-        const SizedBox(height: 80), // Used for padding
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Column(
+    return Scaffold(
+      backgroundColor: kDarkColorScheme.background,
+      appBar: AppBar(
+        centerTitle: false,
+        title: const Text('Calculator'),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          const SizedBox(height: 80),
+          const Text(
+            'Result',
+            style: TextStyle(fontSize: 24),
+          ),
+          const SizedBox(
+            height: 100,
+          ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 4,
               children: [
-                Numbers(7),
-                Numbers(4),
-                Numbers(1),
+                Buttons('AC'),
+                Buttons('+/-'),
+                Buttons('%'),
+                Buttons('/'),
+                Buttons(7),
+                Buttons(8),
+                Buttons(9),
+                Buttons('*'),
+                Buttons(4),
+                Buttons(5),
+                Buttons(6),
+                Buttons('-'),
+                Buttons(1),
+                Buttons(2),
+                Buttons(3),
+                Buttons('+'),
+                Buttons(0),
+                Buttons(','),
+                Buttons('='),
               ],
             ),
-            Column(
-              children: [
-                Numbers(8),
-                Numbers(5),
-                Numbers(2),
-              ],
-            ),
-            Column(
-              children: [
-                Numbers(9),
-                Numbers(6),
-                Numbers(3),
-              ],
-            ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
