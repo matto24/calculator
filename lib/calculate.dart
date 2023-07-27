@@ -44,8 +44,8 @@ class _Calculate extends State<Calculate> {
             child: GridView.count(
               crossAxisCount: 4,
               children: [
-                Buttons('AC'),
-                Buttons('+/-'),
+                Buttons('C'),
+                Buttons('()'),
                 Buttons('%'),
                 Buttons('/'),
                 Buttons(7),
@@ -60,8 +60,16 @@ class _Calculate extends State<Calculate> {
                 Buttons(2),
                 Buttons(3),
                 Buttons('+'),
+                Buttons('.'),
                 Buttons(0),
-                Buttons(','),
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                  child: ElevatedButton.icon(
+                      onPressed: () {},
+                      icon: const Icon(Icons.arrow_back),
+                      label: Text('')),
+                ),
                 Buttons('='),
               ],
             ),
